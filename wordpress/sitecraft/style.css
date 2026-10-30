@@ -1,0 +1,14 @@
+/*
+Theme Name: SiteCraft
+Description: One theme, four designs. Reads the customer's content from the sitecraft_data option.
+Version: 1.0
+*/
+body{margin:0;font-family:system-ui,sans-serif;line-height:1.6;background:var(--bg);color:var(--ink)}
+.t1{--a:#2547d0;--bg:#eaf0ff;--ink:#10243a}.t2{--a:#1f4d3a;--bg:#f6f4ee;--ink:#1b1b18;font-family:Georgia,serif}
+.t3{--a:#0b7a75;--bg:#e9f6f5;--ink:#0d2b2a}.t4{--a:#f2b134;--bg:#14163a;--ink:#fff}
+.sc header,.sc section{max-width:960px;margin:auto;padding:1.5rem}.sc h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1}
+.t2 .hero{text-align:center}.t4 .hero{border-left:6px solid var(--a)}
+.t3 section.b{background:#fff;border-radius:12px;margin:1rem auto}
+.btn{display:inline-block;background:var(--a);color:#fff;padding:.7rem 1.3rem;border-radius:8px;text-decoration:none}.t4 .btn{color:#14163a}
+.hero{padding:4.5rem 1.5rem 3rem}.hero h1{font-family:Georgia,serif;font-weight:500}.btn{transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.p-doctor .btn,.p-freelancer .btn{border-radius:99px}.p-consultant h2{letter-spacing:.04em;text-transform:uppercase;font-size:.9rem}

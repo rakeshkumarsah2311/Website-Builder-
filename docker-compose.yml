@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: sitecraft, POSTGRES_PASSWORD: "${DB_PASSWORD:-sitecraft}", POSTGRES_DB: sitecraft }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U sitecraft"], interval: 3s, retries: 20 }
+  api:
+    build: ./server
+    env_file: ./server/.env
+    environment:
+      DATABASE_URL: "postgres://sitecraft:${DB_PASSWORD:-sitecraft}@db:5432/sitecraft"
+      FRONTEND_URL: "http://localhost:8080"
+    depends_on: { db: { condition: service_healthy } }
+    ports: ["4000:4000"]
+  web:
+    build: { context: ., args: { VITE_API_URL: "http://localhost:4000" } }
+    ports: ["8080:80"]
+volumes: { pgdata: {} }
